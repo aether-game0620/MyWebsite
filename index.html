@@ -1,66 +1,582 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>个人主页</title>
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <style>
-        /* 针对所有元素开启 border-box，防止边框撑大容器，对齐 100% 还原极其重要 */
-        *, *::before, *::after {
-            box-sizing: border-box;
-        }
-    </style>
-</head>
-<body class="min-h-screen bg-[#0d0d0d] text-white overflow-x-hidden relative"
-      style="background-image: linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px), linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px); background-size: 40px 40px;">
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Rehan Ahmed — Premium Design for AI Startups</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <!-- ===== HEADER ===== -->
+        <header class="header">
+            <div class="header-inner">
+                <a href="#" class="logo">
+                    <img src="logo.png" alt="Logo" class="logo-img" />
+                </a>
 
-    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-emerald-500/5 blur-[120px] pointer-events-none rounded-full z-0"></div>
+                <!-- 主导航菜单（左侧/中间） -->
+                <ul class="nav-links" id="navLinks">
+                    <li>
+                        <a href="#work">
+                            <svg
+                                width="16"
+                                height="16"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            >
+                                <rect
+                                    x="2"
+                                    y="7"
+                                    width="20"
+                                    height="14"
+                                    rx="2"
+                                    ry="2"
+                                />
+                                <path
+                                    d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"
+                                />
+                            </svg>
+                            Work
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#services">
+                            <svg
+                                width="16"
+                                height="16"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            >
+                                <circle cx="12" cy="12" r="3" />
+                                <path
+                                    d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"
+                                />
+                            </svg>
+                            Services
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#about">
+                            <svg
+                                width="16"
+                                height="16"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            >
+                                <path
+                                    d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"
+                                />
+                                <circle cx="12" cy="7" r="4" />
+                            </svg>
+                            About
+                        </a>
+                    </li>
+                    <!-- 移动端专属行动按钮 -->
+                    <li class="mobile-only-cta">
+                        <a href="#contact" class="nav-cta">Get in touch</a>
+                    </li>
+                </ul>
 
-    <header class="fixed top-0 left-0 right-0 z-50 w-full bg-[#0d0d0d]/40 backdrop-blur-md border-b border-white/[0.04] px-6 py-4 flex justify-center">
-        <div class="w-full max-w-[1600px] flex justify-between items-center" style="min-width: calc(100vw - 200px);">
-            
-            <nav class="flex items-center gap-1 bg-[#121212]/80 border border-white/[0.05] p-1.5 rounded-full shadow-lg">
-                <a href="#" class="group flex items-center gap-2 px-5 py-2 rounded-full text-xs font-medium tracking-wide bg-neutral-800 text-white shadow-md transition-all duration-300">
-                    <span class="text-emerald-400"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" /></svg></span>
-                    <span>首页</span>
+                <!-- 桌面端独立右置行动按钮 -->
+                <a href="#contact" class="nav-desktop-cta">
+                    <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.8"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    >
+                        <path
+                            d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                        />
+                        <polyline points="22,6 12,13 2,6" />
+                    </svg>
+                    Get in touch
                 </a>
-                <a href="#game-dev" class="group flex items-center gap-2 px-5 py-2 rounded-full text-xs font-medium tracking-wide text-neutral-400 hover:text-neutral-200 hover:bg-white/[0.02] transition-all duration-300">
-                    <span class="text-neutral-500 group-hover:text-neutral-300 transition-transform duration-300 group-hover:scale-110"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 18.75h-9m9 0a3 3 0 0 1 3 3h-15a3 3 0 0 1 3-3m9 0v-3.375c0-.621-.504-1.125-1.125-1.125h-2.25c-.621 0-1.125.504-1.125 1.125v3.375m9 0h1.5A2.25 2.25 0 0 0 21 16.5v-5.25a2.25 2.25 0 0 0-2.25-2.25h-13.5A2.25 2.25 0 0 0 3 11.25v5.25a2.25 2.25 0 0 0 2.25 2.25h1.5m2.25-4.5h.008v.008H9v-.008Zm2.25 0h.008v.008H11.25v-.008Zm2.25 0h.008v.008H13.5v-.008Zm2.25 0h.008v.008H15.75v-.008Z" /></svg></span>
-                    <span>游戏开发</span>
-                </a>
-                <a href="#story" class="group flex items-center gap-2 px-5 py-2 rounded-full text-xs font-medium tracking-wide text-neutral-400 hover:text-neutral-200 hover:bg-white/[0.02] transition-all duration-300">
-                    <span class="text-neutral-500 group-hover:text-neutral-300 transition-transform duration-300 group-hover:scale-110"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-16.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-16.25v14.25" /></svg></span>
-                    <span>我的故事</span>
-                </a>
-                <a href="#cases" class="group flex items-center gap-2 px-5 py-2 rounded-full text-xs font-medium tracking-wide text-neutral-400 hover:text-neutral-200 hover:bg-white/[0.02] transition-all duration-300">
-                    <span class="text-neutral-500 group-hover:text-neutral-300 transition-transform duration-300 group-hover:scale-110"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M15.59 14.37a6 6 0 0 1-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 0 0 6.16-12.12A14.98 14.98 0 0 0 9.631 8.41m5.96 5.96a14.926 14.926 0 0 1-5.841 2.58m-.119-8.54a6 6 0 0 0-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 0 0-2.58 5.84m2.699-2.7c-.103.103-.214.2-.332.291m-.514-.514a6.015 6.015 0 0 1 .514.514L8.43 14.37M21 3h-.008v.008H21V3Zm-.375.375h.008v.008h-.008v-.008Z" /></svg></span>
-                    <span>案例分享</span>
-                </a>
-            </nav>
 
-            <nav class="flex items-center gap-1 bg-[#121212]/80 border border-white/[0.05] p-1.5 rounded-full shadow-lg">
-                <a href="#about" class="group flex items-center gap-2 px-5 py-2 rounded-full text-xs font-medium tracking-wide text-neutral-400 hover:text-neutral-200 hover:bg-white/[0.02] transition-all duration-300">
-                    <span class="text-neutral-500 group-hover:text-neutral-300 transition-transform duration-300 group-hover:scale-110"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" /></svg></span>
-                    <span>关于我</span>
-                </a>
-                <a href="#contact" class="group flex items-center gap-2 px-5 py-2 rounded-full text-xs font-medium tracking-wide text-neutral-400 hover:text-neutral-200 hover:bg-white/[0.02] transition-all duration-300">
-                    <span class="text-neutral-500 group-hover:text-neutral-300 transition-transform duration-300 group-hover:scale-110"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5" /></svg></span>
-                    <span>联系</span>
-                </a>
-            </nav>
+                <button
+                    class="menu-toggle"
+                    id="menuToggle"
+                    aria-label="Toggle menu"
+                >
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </header>
 
+        <!-- ===== RULER ===== -->
+        <div class="ruler-container">
+            <div class="ruler-track">
+                <span class="ruler-tick" style="--pos: 0px">0</span>
+                <span class="ruler-tick" style="--pos: 100px">100</span>
+                <span class="ruler-tick" style="--pos: 200px">200</span>
+                <span class="ruler-tick" style="--pos: 300px">300</span>
+                <span class="ruler-tick" style="--pos: 400px">400</span>
+                <span class="ruler-tick" style="--pos: 500px">500</span>
+                <span class="ruler-tick" style="--pos: 600px">600</span>
+                <span class="ruler-tick" style="--pos: 700px">700</span>
+                <span class="ruler-tick" style="--pos: 800px">800</span>
+                <span class="ruler-tick" style="--pos: 900px">900</span>
+                <span class="ruler-tick" style="--pos: 1000px">1000</span>
+                <span class="ruler-tick" style="--pos: 1100px">1100</span>
+                <span class="ruler-tick" style="--pos: 1200px">1200</span>
+                <span class="ruler-tick" style="--pos: 1300px">1300</span>
+                <span class="ruler-tick" style="--pos: 1400px">1400</span>
+                <span class="ruler-tick" style="--pos: 1500px">1500</span>
+                <span class="ruler-tick" style="--pos: 1600px">1600</span>
+                <span class="ruler-tick" style="--pos: 1700px">1700</span>
+                <span class="ruler-tick" style="--pos: 1800px">1800</span>
+                <span class="ruler-tick" style="--pos: 1900px">1900</span>
+                <span class="ruler-tick" style="--pos: 2000px">2000</span>
+            </div>
         </div>
-    </header>
 
-    <main class="max-w-[1600px] mx-auto px-6 pt-32 pb-24 relative z-10">
-        <div class="h-[60vh] rounded-3xl bg-neutral-950/60 border border-white/[0.03] flex flex-col items-center justify-center text-center backdrop-blur-sm p-8">
-            <h1 class="text-2xl font-bold tracking-tight text-white mb-2">纯原生静态网站骨架已就绪</h1>
-            <p class="text-neutral-500 text-sm max-w-md font-mono">
-                当前最大视宽已锁定 1600px。请去 Figma 设计你的 Bento 格子铺，设计完成后把样式丢给 AI 进行 100% 还原。
-            </p>
-        </div>
-    </main>
+        <!-- ===== HERO ===== -->
+        <section class="hero" id="hero">
+            <div class="hero-bg-grid"></div>
+            <div class="hero-glow"></div>
 
-</body>
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span class="hero-badge-dot"></span>
+                    Available for new projects
+                </div>
+
+                <h1 class="hero-title">
+                    Premium Design for<br />
+                    <span class="highlight">AI Startups</span>
+                </h1>
+
+                <p class="hero-sub">
+                    I design and build beautiful, high-performance products for
+                    ambitious AI companies. From brand identity to full-product
+                    UI/UX.
+                </p>
+
+                <div class="hero-actions">
+                    <a href="#work" class="btn-primary">
+                        View my work
+                        <svg
+                            width="16"
+                            height="16"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        >
+                            <line x1="5" y1="12" x2="19" y2="12" />
+                            <polyline points="12 5 19 12 12 19" />
+                        </svg>
+                    </a>
+                    <a href="#contact" class="btn-secondary"> Book a call </a>
+                </div>
+
+                <div class="hero-stats">
+                    <div class="hero-stat">
+                        <div class="hero-stat-num">50+</div>
+                        <div class="hero-stat-label">Projects Delivered</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-num">30+</div>
+                        <div class="hero-stat-label">Happy Clients</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-num">6+</div>
+                        <div class="hero-stat-label">Years Experience</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== WORK ===== -->
+        <section class="work-section" id="work">
+            <div class="container">
+                <div class="work-header">
+                    <div>
+                        <p class="section-label">Selected Work</p>
+                        <h2 class="section-title">
+                            Recent projects I've<br />designed and built
+                        </h2>
+                    </div>
+                    <a
+                        href="#contact"
+                        class="btn-secondary"
+                        style="flex-shrink: 0"
+                    >
+                        Work with me
+                    </a>
+                </div>
+
+                <div class="work-grid">
+                    <a href="#" class="work-card">
+                        <div
+                            class="work-card-image"
+                            style="
+                                background: linear-gradient(
+                                    135deg,
+                                    #0f0c29,
+                                    #302b63,
+                                    #24243e
+                                );
+                            "
+                        >
+                            <div class="overlay"></div>
+                            <span class="placeholder-icon">🤖</span>
+                        </div>
+                        <div class="work-card-body">
+                            <div class="work-card-tags">
+                                <span class="work-card-tag">UI/UX Design</span>
+                                <span class="work-card-tag">Web App</span>
+                            </div>
+                            <h3 class="work-card-title">
+                                Nova AI — AI Platform Redesign
+                            </h3>
+                            <p class="work-card-desc">
+                                Complete redesign of an AI-powered analytics
+                                platform. Improved user engagement by 40%
+                                through intuitive data visualization.
+                            </p>
+                            <div class="work-card-arrow">
+                                View project
+                                <svg
+                                    width="14"
+                                    height="14"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                >
+                                    <line x1="5" y1="12" x2="19" y2="12" />
+                                    <polyline points="12 5 19 12 12 19" />
+                                </svg>
+                            </div>
+                        </div>
+                    </a>
+
+                    <a href="#" class="work-card">
+                        <div
+                            class="work-card-image"
+                            style="
+                                background: linear-gradient(
+                                    135deg,
+                                    #1a1a2e,
+                                    #16213e,
+                                    #0f3460
+                                );
+                            "
+                        >
+                            <div class="overlay"></div>
+                            <span class="placeholder-icon">🧠</span>
+                        </div>
+                        <div class="work-card-body">
+                            <div class="work-card-tags">
+                                <span class="work-card-tag"
+                                    >Brand Identity</span
+                                >
+                                <span class="work-card-tag">Landing Page</span>
+                            </div>
+                            <h3 class="work-card-title">
+                                Synthwave AI — Brand & Website
+                            </h3>
+                            <p class="work-card-desc">
+                                Full brand identity and marketing website for a
+                                generative AI startup. From logo to production.
+                            </p>
+                            <div class="work-card-arrow">
+                                View project
+                                <svg
+                                    width="14"
+                                    height="14"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                >
+                                    <line x1="5" y1="12" x2="19" y2="12" />
+                                    <polyline points="12 5 19 12 12 19" />
+                                </svg>
+                            </div>
+                        </div>
+                    </a>
+
+                    <a href="#" class="work-card">
+                        <div
+                            class="work-card-image"
+                            style="
+                                background: linear-gradient(
+                                    135deg,
+                                    #0d0d0d,
+                                    #1a1a2e,
+                                    #2d1b69
+                                );
+                            "
+                        >
+                            <div class="overlay"></div>
+                            <span class="placeholder-icon">⚡</span>
+                        </div>
+                        <div class="work-card-body">
+                            <div class="work-card-tags">
+                                <span class="work-card-tag"
+                                    >Product Design</span
+                                >
+                                <span class="work-card-tag">Mobile</span>
+                            </div>
+                            <h3 class="work-card-title">
+                                Pulse — AI Health Companion
+                            </h3>
+                            <p class="work-card-desc">
+                                Mobile app design for an AI-powered health
+                                tracking and personalized wellness
+                                recommendation platform.
+                            </p>
+                            <div class="work-card-arrow">
+                                View project
+                                <svg
+                                    width="14"
+                                    height="14"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                >
+                                    <line x1="5" y1="12" x2="19" y2="12" />
+                                    <polyline points="12 5 19 12 12 19" />
+                                </svg>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== SERVICES ===== -->
+        <section class="services-section" id="services">
+            <div class="container">
+                <div class="services-header">
+                    <p class="section-label">What I do</p>
+                    <h2 class="section-title">Services & expertise</h2>
+                </div>
+
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">🎨</div>
+                        <h3 class="service-title">UI/UX Design</h3>
+                        <p class="service-desc">
+                            User-centered interfaces that are beautiful,
+                            intuitive, and drive results. From wireframes to
+                            pixel-perfect designs.
+                        </p>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon">🖌️</div>
+                        <h3 class="service-title">Brand Identity</h3>
+                        <p class="service-desc">
+                            Strategic brand design including logos, color
+                            systems, typography, and comprehensive brand
+                            guidelines.
+                        </p>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon">🌐</div>
+                        <h3 class="service-title">Web Development</h3>
+                        <p class="service-desc">
+                            Fast, responsive websites built with modern
+                            technologies. From landing pages to full web
+                            applications.
+                        </p>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon">📱</div>
+                        <h3 class="service-title">Mobile Design</h3>
+                        <p class="service-desc">
+                            Native and cross-platform mobile app designs that
+                            feel right at home on every device.
+                        </p>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon">🧪</div>
+                        <h3 class="service-title">AI Product Strategy</h3>
+                        <p class="service-desc">
+                            Specialized design strategy for AI products — from
+                            chat interfaces to complex data dashboards.
+                        </p>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon">🚀</div>
+                        <h3 class="service-title">Design Systems</h3>
+                        <p class="service-desc">
+                            Scalable component libraries and design systems that
+                            ensure consistency across your entire product.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== ABOUT ===== -->
+        <section class="about-section" id="about">
+            <div class="container">
+                <div class="about-grid">
+                    <div class="about-image">
+                        <div class="glow"></div>
+                        <span>👨‍💻</span>
+                    </div>
+                    <div class="about-text">
+                        <p class="greeting">Hi, I'm Rehan 👋</p>
+                        <h2>Designing for the <span>AI era</span></h2>
+                        <p>
+                            I'm a product designer focused on AI startups. I
+                            help founders turn complex ideas into simple,
+                            beautiful products that users love.
+                        </p>
+                        <p>
+                            With over 6 years of experience working with
+                            startups and tech companies, I specialise in
+                            bridging the gap between cutting-edge AI technology
+                            and human-centered design.
+                        </p>
+
+                        <div class="about-detail-grid">
+                            <div class="about-detail-item">
+                                <span class="check">✓</span>
+                                50+ projects completed
+                            </div>
+                            <div class="about-detail-item">
+                                <span class="check">✓</span>
+                                6+ years experience
+                            </div>
+                            <div class="about-detail-item">
+                                <span class="check">✓</span>
+                                AI product specialist
+                            </div>
+                            <div class="about-detail-item">
+                                <span class="check">✓</span>
+                                Figma expert
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== CONTACT ===== -->
+        <section class="contact-section" id="contact">
+            <div class="container">
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <p class="section-label">Get in touch</p>
+                        <h2>
+                            Let's build something<br /><span
+                                >amazing together</span
+                            >
+                        </h2>
+                        <p>
+                            Have a project in mind? I'd love to hear about it.
+                            Book a free 30-minute call to discuss how I can
+                            help.
+                        </p>
+                        <a
+                            href="mailto:hello@rehanahmed.com"
+                            class="contact-email"
+                        >
+                            <svg
+                                width="18"
+                                height="18"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            >
+                                <rect
+                                    x="2"
+                                    y="4"
+                                    width="20"
+                                    height="16"
+                                    rx="2"
+                                />
+                                <path
+                                    d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"
+                                />
+                            </svg>
+                            hello@rehanahmed.com
+                        </a>
+                    </div>
+                    <div class="contact-cal-placeholder">
+                        <div class="cal-icon">📅</div>
+                        <p
+                            style="
+                                margin-bottom: 8px;
+                                color: var(--text);
+                                font-weight: 500;
+                            "
+                        >
+                            Book a free consultation
+                        </p>
+                        <p>
+                            Calendly or Cal.com booking widget<br />can be
+                            embedded here
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== FOOTER ===== -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-inner">
+                    <div class="footer-left">
+                        &copy; 2026 <a href="#">Rehan Ahmed</a>. All rights
+                        reserved.
+                    </div>
+                    <div class="footer-socials">
+                        <a href="#" target="_blank">Twitter / X</a>
+                        <a href="#" target="_blank">LinkedIn</a>
+                        <a href="#" target="_blank">Dribbble</a>
+                        <a href="#" target="_blank">GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <script src="script.js"></script>
+    </body>
 </html>
